@@ -32,6 +32,12 @@ Su una macchina configurata per applicativi Spring Boot, dopo aver clonato il re
 mvn spring-boot:run
 ```
 
+## Building
+
+```
+mvn clean install
+```
+
 ## Built With
 
 * [Spring Boot](https://spring.io/projects/spring-boot)
