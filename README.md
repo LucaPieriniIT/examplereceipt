@@ -24,6 +24,17 @@ Ogni 10 pagamenti la ricevuta riporta il testo del concorso:
 "Se ti chiami ###NOME### hai vinto un buono da 50 euro"
 Si prega di utilizzare questa API per recuperare il nome https://randomuser.me/api
 
+## Description
+
+Applicazione backend che espone due servizi REST per soddisfare i requisiti di cui sopra.
+In src/main/resources/static è presente una collezione 2.1 di Postman pronta per essere importata e testata con request e response già configurati.
+I servizi sono:
+
+- [GET] `/product/all`: restituisce la lista di tutti i prodotti presenti a database;
+- [POST] `/receipt/calculate`: calcola il testo di una ricevuta dati i prodotti selezionati.
+
+L'applicazione si basa su un databse H2 locale. All'avvio dell'applicazione, vengono eseguite le query di INSERT presenti in /src/main/resources così da popolare la tabella dei prodotti.
+
 ## Getting Started
 
 Su una macchina configurata per applicativi Spring Boot, dopo aver clonato il repository, è sufficiente lanciare il comando:
@@ -36,6 +47,12 @@ mvn spring-boot:run
 
 ```
 mvn clean install
+```
+
+Per eseguire l'applicazione una volta compilata:
+
+```
+java -jar ./target/examplereceipt-1.0.jar
 ```
 
 ## Built With
