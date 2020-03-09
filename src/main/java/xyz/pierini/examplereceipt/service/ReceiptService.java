@@ -21,10 +21,30 @@ public class ReceiptService {
 	@Autowired
 	private ProductService productService;
 
-	public CalculatedReceipt calculate(SelectedProducts selectedProducts) {
+	public CalculatedReceipt calculate(SelectedProducts selectedProducts) throws Exception {
+		checkCalculateParamsAndThrowException(selectedProducts);
 		List<Product> foundProducts = productService.findAllById(selectedProducts.getProductIds());
+		checkFoundProductsAndThrowException(foundProducts, selectedProducts);
 		String receiptText = calculateAndPersistReceipt(foundProducts);
 		return new CalculatedReceipt(receiptText);
+	}
+	
+	private void checkCalculateParamsAndThrowException(SelectedProducts selectedProducts) throws Exception {
+		if (selectedProducts == null) {
+			throw new Exception("selectedProducts is null");
+		}
+		if (selectedProducts.getProductIds() == null || selectedProducts.getProductIds().isEmpty()) {
+			throw new Exception("selectedProducts ids are empty");
+		}
+	}
+	
+	private void checkFoundProductsAndThrowException(List<Product> foundProducts, SelectedProducts selectedProducts) throws Exception {
+		if (foundProducts == null || foundProducts.isEmpty()) {
+			throw new Exception("Products not found");
+		}
+		if (foundProducts.size() != selectedProducts.getProductIds().size()) {
+			throw new Exception("Some products were not found");
+		}
 	}
 
 	private String calculateAndPersistReceipt(List<Product> selectedProducts) {

@@ -20,7 +20,7 @@ public class ReceiptController {
 	 * @param selectedProducts Prodotti selezionati (scelti tramite ID)
 	 * @return Testo della ricevuta calcolata
 	 */
-	public CalculatedReceipt calculate(@RequestBody SelectedProducts selectedProducts) {
+	public CalculatedReceipt calculate(@RequestBody SelectedProducts selectedProducts) throws Exception {
 		return receiptService.calculate(selectedProducts);
 	}
 

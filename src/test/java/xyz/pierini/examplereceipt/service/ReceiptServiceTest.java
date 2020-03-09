@@ -63,7 +63,7 @@ public class ReceiptServiceTest {
 	}
 
 	@Test
-	public void shouldReturnCalculatedReceipt() {
+	public void shouldReturnCalculatedReceipt() throws Exception {
 		List<Long> ids = new ArrayList<>();
 		ids.add(new Long(1));
 		ids.add(new Long(2));
