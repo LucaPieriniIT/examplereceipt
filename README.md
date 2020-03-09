@@ -18,7 +18,7 @@ I prezzi devono avere 2 decimali.
 Input: - Libro "Il signore degli anelli", prezzo 12.49 - CompactDisc "Innuendo", prezzo 14.99 - Snack "Cioccolata", prezzo 0.85 
 Output: - Il signore degli anelli - BOOK: 12.49 Innuendo - MUSIC: 16.49 Cioccolata - FOOD: 0.85 TAXES: 1.50 TOTAL: 29.83 
 
-### OPZIONALE:
+**OPZIONALE**
 
 Ogni 10 pagamenti la ricevuta riporta il testo del concorso:
 "Se ti chiami ###NOME### hai vinto un buono da 50 euro"
